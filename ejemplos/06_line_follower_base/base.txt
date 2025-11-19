@@ -1,0 +1,26 @@
+#include <OrangutanAnalog.h>
+#include <OrangutanMotors.h>
+
+OrangutanAnalog analog;
+OrangutanMotors motors;
+
+int L = A0;
+int R = A4;
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  int sL = analog.read(L);
+  int sR = analog.read(R);
+
+  int base = 200;
+  int error = sL - sR;
+  int k = 0.2;
+
+  int mL = base + error * k;
+  int mR = base - error * k;
+
+  motors.setSpeeds(mL, mR);
+}

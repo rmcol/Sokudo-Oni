@@ -1,0 +1,19 @@
+#include <OrangutanMotors.h>
+
+OrangutanMotors motors;
+
+void setup() {}
+
+void loop() {
+  motors.setSpeeds(200, 200);  // avanza
+  delay(1000);
+
+  motors.setSpeeds(0, 0);     // frena
+  delay(500);
+
+  motors.setSpeeds(-200, -200); // retrocede
+  delay(1000);
+
+  motors.setSpeeds(0, 0);
+  delay(500);
+}
